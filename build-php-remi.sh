@@ -11,7 +11,6 @@ wget https://rpms.remirepo.net/enterprise/remi-release-6.rpm
 rpm -Uvh remi-release-6.rpm
 rpm -Uvh epel-release-latest-6.noarch.rpm
 
-
 yum-config-manager --enable remi-php7${PHP_MINOR_VERSION}
 
 yum install -y httpd
@@ -24,6 +23,7 @@ yum install -y --disablerepo="*" --enablerepo="remi,remi-php7${PHP_MINOR_VERSION
 mkdir /tmp/layer
 cd /tmp/layer
 cp /opt/layer/bootstrap bootstrap
+cp /opt/layer/init.php init.php
 sed "s/PHP_MINOR_VERSION/${PHP_MINOR_VERSION}/g" /opt/layer/php.ini >php.ini
 
 mkdir bin
